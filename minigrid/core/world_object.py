@@ -134,6 +134,22 @@ class Floor(WorldObj):
         color = COLORS[self.color] / 2
         fill_coords(img, point_in_rect(0.031, 1, 0.031, 1), color)
 
+class Hazard(WorldObj):
+    """
+    Colored floor tile the agent can walk over but may incur a cost
+    """
+
+    def __init__(self, color: str = "yellow"):
+        super().__init__("floor", color)
+
+    def can_overlap(self):
+        return True
+
+    def render(self, img):
+        # Give the floor a pale color
+        color = COLORS[self.color] / 2
+        fill_coords(img, point_in_rect(0.031, 1, 0.031, 1), color)
+
 
 class Lava(WorldObj):
     def __init__(self):
