@@ -79,7 +79,7 @@ class MiniGridEnv(gym.Env):
             {
                 "image": image_observation_space,
                 "direction": spaces.Discrete(4),
-                "mission": mission_space,
+                # "mission": mission_space,
             }
         )
 
@@ -645,7 +645,8 @@ class MiniGridEnv(gym.Env):
         # - an image (partially observable view of the environment)
         # - the agent's direction/orientation (acting as a compass)
         # - a textual mission string (instructions for the agent)
-        obs = {"image": image, "direction": self.agent_dir, "mission": self.mission}
+        # obs = {"image": image, "direction": self.agent_dir, "mission": self.mission} # TODO: issue with mission in obsevation when put in VecEnv
+        obs = {"image": image, "direction": self.agent_dir}
 
         return obs
 
