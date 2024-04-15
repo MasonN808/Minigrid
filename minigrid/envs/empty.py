@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from minigrid.core.grid import Grid
 from minigrid.core.mission import MissionSpace
-from minigrid.core.world_object import Goal
+from minigrid.core.world_object import Goal, Hazard
 from minigrid.minigrid_env import MiniGridEnv
 
 
@@ -103,6 +103,8 @@ class EmptyEnv(MiniGridEnv):
 
         # Place a goal square in the bottom-right corner
         self.put_obj(Goal(), width - 2, height - 2)
+
+        # self.put_obj(Hazard(), width - 2, height - 2)
 
         # Place the agent
         if self.agent_start_pos is not None:
