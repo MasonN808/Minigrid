@@ -111,10 +111,20 @@ class EmptyEnv(MiniGridEnv):
         if self.costs:
             self.put_obj(Hazard(), width - 4, height - 5)
             self.put_obj(Hazard(), width - 3, height - 4)
-            self.put_obj(Hazard(), width - 7, height - 9)
+            self.put_obj(Hazard(), width - 2, height - 3)
             self.put_obj(Hazard(), width - 8, height - 2)
+            self.put_obj(Hazard(), width - 9, height - 3)
+            self.put_obj(Hazard(), width - 10, height - 4)
+
+            self.put_obj(Hazard(), width - 7, height - 9)
             self.put_obj(Hazard(), width - 14, height - 7)
             self.put_obj(Hazard(), width - 4, height - 13)
+            self.put_obj(Hazard(), width - 4, height - 2)
+            self.put_obj(Hazard(), width - 10, height - 7)
+            self.put_obj(Hazard(), width - 11, height - 12)
+            self.put_obj(Hazard(), width - 10, height - 7)
+            self.put_obj(Hazard(), width - 15, height - 14)
+            self.put_obj(Hazard(), width - 15, height - 14)
 
         # Place the agent
         if self.agent_start_pos is not None:
