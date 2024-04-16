@@ -85,6 +85,8 @@ class WorldObj:
             v = Wall(color)
         elif obj_type == "floor":
             v = Floor(color)
+        elif obj_type == "hazard":
+            v = Hazard(color)
         elif obj_type == "ball":
             v = Ball(color)
         elif obj_type == "key":
@@ -140,7 +142,7 @@ class Hazard(WorldObj):
     """
 
     def __init__(self, color: str = "yellow"):
-        super().__init__("floor", color)
+        super().__init__("hazard", color)
 
     def can_overlap(self):
         return True

@@ -71,10 +71,13 @@ class EmptyEnv(MiniGridEnv):
         agent_start_pos=(1, 1),
         agent_start_dir=0,
         max_steps: int | None = None,
+        costs: bool = False,
         **kwargs,
     ):
         self.agent_start_pos = agent_start_pos
         self.agent_start_dir = agent_start_dir
+
+        self.costs = costs
 
         mission_space = MissionSpace(mission_func=self._gen_mission)
 
@@ -87,6 +90,7 @@ class EmptyEnv(MiniGridEnv):
             # Set this to True for maximum speed
             see_through_walls=True,
             max_steps=max_steps,
+            costs=costs,
             **kwargs,
         )
 
@@ -104,7 +108,13 @@ class EmptyEnv(MiniGridEnv):
         # Place a goal square in the bottom-right corner
         self.put_obj(Goal(), width - 2, height - 2)
 
-        # self.put_obj(Hazard(), width - 2, height - 2)
+        if self.costs:
+            self.put_obj(Hazard(), width - 4, height - 5)
+            self.put_obj(Hazard(), width - 3, height - 4)
+            self.put_obj(Hazard(), width - 7, height - 9)
+            self.put_obj(Hazard(), width - 8, height - 2)
+            self.put_obj(Hazard(), width - 14, height - 7)
+            self.put_obj(Hazard(), width - 4, height - 13)
 
         # Place the agent
         if self.agent_start_pos is not None:

@@ -237,6 +237,12 @@ class MiniGridEnv(gym.Env):
     def _gen_grid(self, width, height):
         pass
 
+    def _cost(self) -> float:
+        """
+        Compute the cost for traversing certain tiles
+        """
+        return -1
+
     def _reward(self) -> float:
         """
         Compute the reward to be given upon success
@@ -528,6 +534,7 @@ class MiniGridEnv(gym.Env):
         self.step_count += 1
 
         reward = 0
+        cost = 0
         terminated = False
         truncated = False
 
@@ -554,6 +561,8 @@ class MiniGridEnv(gym.Env):
             if fwd_cell is not None and fwd_cell.type == "goal":
                 terminated = True
                 reward = self._reward()
+            if fwd_cell is not None and fwd_cell.type == "hazard":
+                cost = self._cost()
             if fwd_cell is not None and fwd_cell.type == "lava":
                 terminated = True
 
@@ -592,7 +601,7 @@ class MiniGridEnv(gym.Env):
 
         obs = self.gen_obs()
 
-        return obs, reward, terminated, truncated, {}
+        return obs, reward, terminated, truncated, {"cost": cost}
 
     def gen_obs_grid(self, agent_view_size=None):
         """

@@ -201,6 +201,12 @@ def register_minigrid_envs():
         kwargs={"size": 16},
     )
 
+    register(
+        id="MiniGrid-Empty-16x16-v1",
+        entry_point="minigrid.envs:EmptyEnv",
+        kwargs={"size": 16, "costs": True},
+    )
+
     # Fetch
     # ----------------------------------------
 
