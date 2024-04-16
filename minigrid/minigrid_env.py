@@ -535,7 +535,7 @@ class MiniGridEnv(gym.Env):
         self.step_count += 1
 
         reward = 0
-        cost = []
+        cost = [0]
         terminated = False
         truncated = False
 
