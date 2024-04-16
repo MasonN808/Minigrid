@@ -45,6 +45,7 @@ class MiniGridEnv(gym.Env):
         highlight: bool = True,
         tile_size: int = TILE_PIXELS,
         agent_pov: bool = False,
+        costs: bool = False,
     ):
         # Initialize mission
         self.mission = mission_space.sample()
