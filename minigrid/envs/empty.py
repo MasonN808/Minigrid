@@ -115,6 +115,9 @@ class EmptyEnv(MiniGridEnv):
             self.put_obj(Hazard(), width - 8, height - 2)
             self.put_obj(Hazard(), width - 9, height - 3)
             self.put_obj(Hazard(), width - 10, height - 4)
+            self.put_obj(Hazard(), width - 10, height - 4)
+            self.put_obj(Hazard(), width - 10, height - 4)
+            self.put_obj(Hazard(), width - 10, height - 4)
 
             self.put_obj(Hazard(), width - 7, height - 9)
             self.put_obj(Hazard(), width - 14, height - 7)
